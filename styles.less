@@ -1,0 +1,140 @@
+@debug-tools-button-radius: 15px;
+@debug-tool-item-color: #27AE61;
+@debug-tool-show-menu-color: #0083ae;
+
+.flex-container() {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column-reverse;
+  -ms-flex-direction: column-reverse;
+  flex-direction: column-reverse;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-content: stretch;
+  -ms-flex-line-pack: stretch;
+  align-content: stretch;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
+.flex-item() {
+  -webkit-order: 0;
+  -ms-flex-order: 0;
+  order: 0;
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  -webkit-align-self: auto;
+  -ms-flex-item-align: auto;
+  align-self: auto;
+}
+
+.debug-show-tools {
+  .flex-container();
+  width: 80px;
+  height: 50px;
+  font-size: 14px;
+  font-weight: bold;
+  z-index: 1500;
+
+  position: fixed;
+  right: 13px;
+  bottom: 10px;
+
+  ul {
+    list-style: none;
+    margin-bottom: 0;
+    li {
+      visibility: visible;
+
+      -webkit-transition: background-color 400ms, color 400ms, -webkit-transform 400ms;
+      transition: background-color 400ms, color 400ms, transform 400ms;
+
+      padding: 5px 8px;
+      a {
+        color: #fff;
+        text-decoration: none;
+        text-align: center;
+        background-color: @debug-tool-show-menu-color;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        border-radius: 20px;
+
+        display: block;
+        font-weight: bold;
+
+        &:hover {
+          color: darken(#fff, 10%);
+          background-color: darken(@debug-tool-show-menu-color, 10%);
+        }
+
+        &:visited, &:link {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+.debug-tools-overlay {
+  position: fixed;
+  right: 10px;
+  bottom: 5px;
+  height: 100px;
+  width: 170px;
+  z-index: 1500;
+  font-size: 12px;
+
+  .flex-container();
+
+  ul {
+    list-style: none;
+
+    li {
+      visibility: hidden;
+
+      margin-bottom: 5px;
+      float: none;
+      padding: 0 5px;
+
+      //.flex-item();
+
+      -webkit-transition: background-color 400ms, color 400ms, -webkit-transform 400ms;
+      transition: background-color 400ms, color 400ms, transform 400ms;
+
+      a {
+        color: #fff;
+        text-decoration: none;
+        text-align: center;
+        background-color: @debug-tool-show-menu-color;
+        -webkit-border-radius: @debug-tools-button-radius;
+        -moz-border-radius: @debug-tools-button-radius;
+        border-radius: @debug-tools-button-radius;
+        display: block;
+        padding: 5px 8px;
+
+        &:hover {
+          color: darken(#fff, 10%);
+          background-color: darken(@debug-tool-show-menu-color, 5%);
+        }
+
+        &:visited, &:link {
+          text-decoration: none;
+        }
+      }
+
+      &:hover {
+        color: darken(#ffffff, 5%);
+      }
+    }
+  }
+}
+
+.debug-tool {
+}
